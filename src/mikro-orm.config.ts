@@ -8,9 +8,9 @@ export default defineConfig({
   entitiesTs: ['src/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   debug: true,
-  host: 'ep-bold-poetry-a1imsnds-pooler.ap-southeast-1.aws.neon.tech',
-  user: 'neondb_owner',
-  password: 'npg_ilnHJqNBY7s4',
+  host: 'localhost',
+  user: 'mojak',
+  password: 'mojak2525',
   port: 5432,
   driverOptions: {
     connection: {
