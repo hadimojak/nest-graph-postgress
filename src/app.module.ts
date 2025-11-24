@@ -1,18 +1,18 @@
 import { Module } from '@nestjs/common';
 // import { AppController } from './app.controller';
 // import { AppService } from './app.service';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { StudentModule } from './student/student.module';
+import { ApolloDriver } from '@nestjs/apollo';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot({
       debug: true,
-      driver: ApolloDriver,
       playground: true,
-      path: '/api/graphql',
+      autoSchemaFile: true,
+      driver: ApolloDriver,
     }),
     MikroOrmModule.forRoot(),
     StudentModule,

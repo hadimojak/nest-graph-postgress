@@ -7,16 +7,10 @@ export class Student {
   id: string = uuid();
 
   @Property()
-  fullName!: string;
+  name!: string;
 
   @Property()
   email!: string;
-
-  @Property()
-  major!: string;
-
-  @Property()
-  semester!: number;
 
   @Property()
   createdAt: Date;

@@ -14,9 +14,7 @@ export default defineConfig({
   port: 5432,
   driverOptions: {
     connection: {
-      ssl: {
-        rejectUnauthorized: false, // allows self-signed certificates
-      },
+      ssl: false,
     },
   },
 });
