@@ -8,7 +8,7 @@ export default defineConfig({
   entitiesTs: ['src/**/*.entity.ts'],
   metadataProvider: TsMorphMetadataProvider,
   debug: true,
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'mojak',
   password: 'mojak2525',
   port: 5432,

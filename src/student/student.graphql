@@ -1,0 +1,23 @@
+type Student {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int
+  createdAt: String!
+  updatedAt: String
+}
+
+input CreateStudentInput {
+  name: String!
+  email: String!
+  age: Int!
+}
+
+type Query {
+  getStuff: String!
+}
+
+type Mutation {
+  createStudent(student: CreateStudentInput!): Student!
+}
+

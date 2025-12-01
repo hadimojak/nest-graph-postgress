@@ -2,22 +2,29 @@ version: '3.9'
 
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:15.15-trixie
     container_name: postgres_local
-    restart: always
+    restart: unless-stopped
+
     environment:
       POSTGRES_USER: mojak
       POSTGRES_PASSWORD: mojak2525
       POSTGRES_DB: hadi
+      PGDATA: /var/lib/postgresql/data  # explicit data directory used by postgres
+
     ports:
       - "5432:5432"
+
     volumes:
-      - ./data:/var/lib/my-postgresql/data
+      - pgdata:/var/lib/postgresql/data  # ✅ persistent named volume mounted correctly
+
     networks:
       - backend
 
 volumes:
-  postgres_data:
+  pgdata:
+    name: pgdata      # ✅ FIXED: now it's correctly nested under the volume
+    driver: local     # optional but recommended for clarity/stability
 
 networks:
   backend:
