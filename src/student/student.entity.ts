@@ -20,13 +20,13 @@ export class Student {
 
   @Field()
   @Property()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Field()
   @Property()
-  updatedAt!: Date;
+  updatedAt?: Date;
 
   @Field(() => Int)
   @Property()
-  age: number;
+  age!: number;
 }

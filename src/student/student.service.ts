@@ -16,7 +16,6 @@ export class StudentService {
     const student = this.studentRepository.create({
       ...studentInput,
       createdAt: now,
-      updatedAt: now,
     });
     await this.studentRepository.persistAndFlush(student);
     return student;
