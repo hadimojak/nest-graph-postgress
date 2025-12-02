@@ -1,11 +1,16 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import { Entity, PrimaryKey, Property, OptionalProps } from '@mikro-orm/core';
 import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
+import { IsEmail } from 'class-validator';
 import { v4 as uuid } from 'uuid';
 import { StudentRepository } from './student.repository';
 
 @ObjectType()
 @Entity({ repository: () => StudentRepository })
 export class Student {
+  // Tell MikroORM these fields are optional when creating
+  [OptionalProps]?: 'id' | 'createdAt' | 'updatedAt';
+
   @Field(() => ID)
   @PrimaryKey()
   id: string = uuid();
@@ -16,15 +21,16 @@ export class Student {
 
   @Field()
   @Property()
+  @IsEmail()
   email!: string;
 
   @Field()
-  @Property()
+  @Property({ onCreate: () => new Date() })
   createdAt!: Date;
 
   @Field()
-  @Property()
-  updatedAt?: Date;
+  @Property({ onCreate: () => new Date(), onUpdate: () => new Date() })
+  updatedAt!: Date;
 
   @Field(() => Int)
   @Property()

@@ -20,7 +20,7 @@ export class Student {
     email: string;
     age?: Nullable<number>;
     createdAt: string;
-    updatedAt?: Nullable<string>;
+    updatedAt: string;
 }
 
 export abstract class IQuery {

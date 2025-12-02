@@ -12,6 +12,12 @@ export default defineConfig({
   user: 'mojak',
   password: 'mojak2525',
   port: 5432,
+  migrations: {
+    path: './dist/migrations',
+    pathTs: './src/migrations',
+    glob: '!(*.d).{js,ts}',
+    snapshot: true,
+  },
   driverOptions: {
     connection: {
       ssl: false,

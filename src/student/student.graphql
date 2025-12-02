@@ -4,7 +4,7 @@ type Student {
   email: String!
   age: Int
   createdAt: String!
-  updatedAt: String
+  updatedAt: String!
 }
 
 input CreateStudentInput {
@@ -20,4 +20,3 @@ type Query {
 type Mutation {
   createStudent(student: CreateStudentInput!): Student!
 }
-

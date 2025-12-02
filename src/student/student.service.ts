@@ -12,10 +12,8 @@ export class StudentService {
   ) {}
 
   async createStudent(studentInput: CreateStudentDto): Promise<Student> {
-    const now = new Date();
     const student = this.studentRepository.create({
       ...studentInput,
-      createdAt: now,
     });
     await this.studentRepository.persistAndFlush(student);
     return student;
