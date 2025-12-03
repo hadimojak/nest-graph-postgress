@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { InputType, Field, Int } from '@nestjs/graphql';
 import { IsEmail, IsNumber } from 'class-validator';
 import { Min, Max } from 'class-validator';

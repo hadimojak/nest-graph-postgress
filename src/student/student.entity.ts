@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Entity, PrimaryKey, Property, OptionalProps } from '@mikro-orm/core';
 import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
 import { IsEmail } from 'class-validator';
